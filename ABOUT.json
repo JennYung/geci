@@ -1,0 +1,111 @@
+{
+  "$jason": {
+    "head": {
+      "title": "ABOUT",
+      "actions": {
+        "$foreground": {
+          "type": "$reload"
+        }
+      }
+    },
+    "body": {
+      "header": {
+        "title": "GECI",
+        "style": {
+          "font": "HelveticaNeue-CondensedBold",
+          "size": "20",
+          "color": "#3f3f3f"
+        }
+      },
+      "sections": [
+        {
+          "items": [
+            {
+              "type": "label",
+              "text": "Version 1.0",
+              "style": {
+                "font": "HelveticaNeue",
+                "size": "11",
+                "color": "#88888888",
+                "padding": "10",
+                "spacing": "5"
+              }
+            },
+            {
+              "type": "label",
+              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+              "style": {
+                "font": "HelveticaNeue",
+                "size": "14",
+                "color": "#3f3f3f",
+                "padding": "10",
+                "spacing": "5"
+              }
+            },
+            {
+              "type": "label",
+              "style": {
+                "padding": "10",
+                "font": "HelveticaNeue",
+                "size": "14"
+              },
+              "href": {
+                "url": "https://twitter.com/request4geci",
+                "view": "web"
+              }
+            }
+          ]
+        }
+      ],
+      "footer": {
+        "tabs": {
+          "style": {
+            "background": "#ffffff"
+          },
+          "items": [
+            {
+              "image": "https://goo.gl/R2LQUg",
+              "text": "LATEST",
+              "style": {
+                "height": "21"
+              },
+              "url": "https://www.jasonbase.com/things/rn1.json"
+            },
+            {
+              "image": "https://goo.gl/x4IaDm",
+              "text": "FEMALE",
+              "style": {
+                "height": "21"
+              },
+              "url": "https://www.jasonbase.com/things/yem.json"
+            },
+            {
+              "image": "https://goo.gl/b11ENw",
+              "text": "MALE",
+              "style": {
+                "height": "21"
+              },
+              "url": "https://www.jasonbase.com/things/EMw.json"
+            },
+            {
+              "image": "https://goo.gl/tbX7BT",
+              "text": "GROUP",
+              "style": {
+                "height": "21"
+              },
+              "url": "https://www.jasonbase.com/things/WdZ.json"
+            },
+            {
+              "image": "http://i65.tinypic.com/16m0xo0.jpg",
+              "text": "ABOUT",
+              "style": {
+                "height": "21"
+              },
+              "url": "https://www.jasonbase.com/things/ar1.json"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
