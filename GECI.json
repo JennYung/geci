@@ -1,0 +1,170 @@
+{
+  "$jason": {
+    "head": {
+      "title": "GECI",
+      "actions": {
+        "$load": {
+          "type": "$network.request",
+          "options": {
+            "url": "https://docs.google.com/spreadsheets/d/174bbwtgatpuxrrfK8aMas2xfezVZ1LwIgYoTtSMeLSE/pub?output=csv",
+            "data_type": "raw"
+          },
+          "success": {
+            "type": "$convert.csv",
+            "options": {
+              "data": "{{$jason}}"
+            },
+            "success": {
+              "type": "$render"
+            }
+          }
+        },
+        "$pull": {
+          "type": "$flush",
+          "success": {
+            "type": "$reload"
+          }
+        },
+        "$foreground": {
+          "type": "$reload"
+        }
+      },
+      "templates": {
+        "body": {
+          "header": {
+            "title": "GECI",
+            "style": {
+              "font": "HelveticaNeue-CondensedBold",
+              "size": "20",
+              "color": "#3f3f3f"
+            },
+            "search": {
+              "name": "query",
+              "placeholder": "search for singer, album or song",
+              "style": {
+                "color": "#999999"
+              }
+            }
+          },
+          "sections": [
+            {
+              "items": {
+                "{{#each $jason}}": {
+                  "type": "horizontal",
+                  "href": {
+                    "url": "{{lyrics}}",
+                    "transition": "fullscreen"
+                  },
+                  "style": {
+                    "padding": "10",
+                    "spacing": "15"
+                  },
+                  "components": [
+                    {
+                      "type": "image",
+                      "style": {
+                        "width": "50"
+                      },
+                      "url": "{{albumcover}}"
+                    },
+                    {
+                      "type": "vertical",
+                      "action": {
+                        "type": "$cache.set",
+                        "options": {
+                          "albumcover": "{{albumcover}}",
+                          "track": "{{track}}",
+                          "artist": "{{artist}}",
+                          "album": "{{album}}"
+                        }
+                      },
+                      "components": [
+                        {
+                          "type": "label",
+                          "text": "{{track}}",
+                          "style": {
+                            "font": "HelveticaNeue",
+                            "size": "13",
+                            "color": "#3f3f3f"
+                          }
+                        },
+                        {
+                          "type": "label",
+                          "text": "{{artist}} . {{album}}",
+                          "style": {
+                            "font": "HelveticaNeue",
+                            "size": "10",
+                            "color": "#888888"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          ],
+          "footer": {
+            "tabs": {
+              "style": {
+                "background": "#ffffff",
+                "color": "#3f3f3f",
+                "size": "10"
+              },
+              "items": [
+                {
+                  "image": "https://goo.gl/R2LQUg",
+                  "text": "LATEST",
+                  "style": {
+                    "height": "21"
+                  },
+                  "url": "https://www.jasonbase.com/things/rn1.json"
+                },
+                {
+                  "image": "https://goo.gl/x4IaDm",
+                  "text": "FEMALE",
+                  "style": {
+                    "height": "21"
+                  },
+                  "url": "https://www.jasonbase.com/things/yem.json"
+                },
+                {
+                  "image": "https://goo.gl/b11ENw",
+                  "text": "MALE",
+                  "style": {
+                    "height": "21"
+                  },
+                  "url": "https://www.jasonbase.com/things/EMw.json"
+                },
+                {
+                  "image": "https://goo.gl/tbX7BT",
+                  "text": "GROUP",
+                  "style": {
+                    "height": "21"
+                  },
+                  "url": "https://www.jasonbase.com/things/WdZ.json"
+                },
+                {
+                  "image": "https://goo.gl/04S1AK",
+                  "text": "FAVORITE",
+                  "style": {
+                    "height": "21"
+                  },
+                  "url": "https://www.jasonbase.com/things/WdZ.json"
+                },
+                {
+                  "image": "http://i65.tinypic.com/16m0xo0.jpg",
+                  "text": "ABOUT",
+                  "style": {
+                    "height": "21"
+                  },
+                  "url": "https://www.jasonbase.com/things/ar1.json"
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}
