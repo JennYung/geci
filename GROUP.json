@@ -1,0 +1,145 @@
+{
+  "$jason": {
+    "head": {
+      "title": "GROUP",
+      "actions": {
+        "$load": {
+          "type": "$network.request",
+          "options": {
+            "url": "https://docs.google.com/spreadsheets/d/174bbwtgatpuxrrfK8aMas2xfezVZ1LwIgYoTtSMeLSE/pub?gid=955761614&single=true&output=csv",
+            "data_type": "raw"
+          },
+          "success": {
+            "type": "$convert.csv",
+            "options": {
+              "data": "{{$jason}}"
+            },
+            "success": {
+              "type": "$render"
+            }
+          }
+        },
+        "$pull": {
+          "type": "$flush",
+          "success": {
+            "type": "$reload"
+          }
+        },
+        "$foreground": {
+          "type": "$reload"
+        }
+      },
+      "templates": {
+        "body": {
+          "header": {
+            "title": "GROUP",
+            "style": {
+              "font": "HelveticaNeue-CondensedBold",
+              "size": "20",
+              "color": "#3f3f3f"
+            },
+            "search": {
+              "name": "query",
+              "placeholder": "search for singer",
+              "style": {
+                "color": "#999999"
+              }
+            }
+          },
+          "sections": [
+            {
+              "items": {
+                "{{#each $jason.filter(function(item){return item.category === 'group';})}}": {
+                  "type": "horizontal",
+                  "href": {
+                    "url": "{{artistpage}}",
+                    "transition": "fullscreen"
+                  },
+                  "style": {
+                    "padding": "10",
+                    "spacing": "10"
+                  },
+                  "components": [
+                    {
+                      "type": "image",
+                      "style": {
+                        "width": "50",
+                        "height": "50",
+                        "corner_radius": "25"
+                      },
+                      "url": "{{artistimage}}"
+                    },
+                    {
+                      "type": "vertical",
+                      "components": [
+                        {
+                          "type": "label",
+                          "text": "{{artist}}",
+                          "style": {
+                            "font": "HelveticaNeue",
+                            "size": "13",
+                            "color": "#3f3f3f"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          ],
+          "footer": {
+            "tabs": {
+              "style": {
+                "background": "rgba(255,255,255,0.8)",
+                "color": "#000000"
+              },
+              "items": [
+                {
+                  "image": "https://goo.gl/R2LQUg",
+                  "text": "LATEST",
+                  "style": {
+                    "height": "21"
+                  },
+                  "url": "https://www.jasonbase.com/things/rn1.json"
+                },
+                {
+                  "image": "https://goo.gl/x4IaDm",
+                  "text": "FEMALE",
+                  "style": {
+                    "height": "21"
+                  },
+                  "url": "https://www.jasonbase.com/things/yem.json"
+                },
+                {
+                  "image": "https://goo.gl/b11ENw",
+                  "text": "MALE",
+                  "style": {
+                    "height": "21"
+                  },
+                  "url": "https://www.jasonbase.com/things/EMw.json"
+                },
+                {
+                  "image": "https://goo.gl/tbX7BT",
+                  "text": "GROUP",
+                  "style": {
+                    "height": "21"
+                  },
+                  "url": "https://www.jasonbase.com/things/WdZ.json"
+                },
+                {
+                  "image": "http://i65.tinypic.com/16m0xo0.jpg",
+                  "text": "ABOUT",
+                  "style": {
+                    "height": "21"
+                  },
+                  "url": "https://www.jasonbase.com/things/ar1.json"
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}
